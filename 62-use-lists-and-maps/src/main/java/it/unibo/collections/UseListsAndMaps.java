@@ -47,8 +47,8 @@ public final class UseListsAndMaps {
          */
         int temp;
         temp = arrList.getFirst();
-        arrList.set(arrList.getLast(), 0);
-        arrList.set(temp, arrList.size());
+        arrList.set(0, arrList.getLast());
+        arrList.set(arrList.size() - 1, temp);
         /*
          * 4) Using a single for-each, print the contents of the arraylist.
          */
@@ -137,18 +137,25 @@ public final class UseListsAndMaps {
          *
          * Oceania -> 38,304,000
          */
-        final Map<String, Integer> map = new HashMap<>();
-        map.put("Africa", 1110635000);
-        map.put("Americas", 972005000);
-        map.put("Antarctica", 0);
-        map.put("Asia", 429872300);
-        map.put("Europe", 742452000);
-        map.put("Oceania", 38304000);
+        final Map<String, Long> map = new HashMap<>();
+        map.put("Africa", 1110635000L);
+        map.put("Americas", 972005000L);
+        map.put("Antarctica", 0L);
+        map.put("Asia", 4298723000L);
+        map.put("Europe", 742452000L);
+        map.put("Oceania", 38304000L);
         /*
          * 8) Compute the population of the world
          */
 
+        Long sum = 0L;
+
+        map.values();
+        for(Long pop: map.values()){
+            sum += pop;
+        }
          
+        System.out.println("The world population is: " + sum);
     }
 
     public static Long countingWrite(List<Integer> l){
